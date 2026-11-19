@@ -1,0 +1,86 @@
+# Security Policy
+
+We take the security of Voca seriously. Because the app handles your
+microphone and injects keystrokes on your behalf, we want any vulnerabilities
+found and fixed responsibly.
+
+## Reporting a vulnerability
+
+**Please do not open a public issue for security vulnerabilities.**
+
+Instead, report them privately through GitHub's built-in channel: open a private
+security advisory at the repository's **Security → Report a vulnerability** page —
+**https://github.com/aman-a-shah/voca-downloads/security/advisories/new**.
+This keeps the report confidential until a fix is released.
+
+When reporting, please include:
+
+- a description of the issue and its potential impact,
+- the version of Voca and your OS/architecture,
+- step-by-step reproduction instructions (and a proof of concept if you have
+  one).
+
+**Our commitment (responsible disclosure):**
+
+- We will **acknowledge** your report within **3 business days**.
+- We aim to provide an initial **assessment within 7 days**.
+- We ask that you give us up to **90 days** to investigate and ship a fix
+  before any public disclosure. We are happy to coordinate timing and to credit
+  you in the release notes (unless you prefer to remain anonymous).
+
+Please make a good-faith effort to avoid privacy violations, data destruction,
+and service disruption while researching. We will not pursue or support legal
+action against researchers who follow this policy.
+
+## Supported versions
+
+We provide security fixes for the **latest released version**. Older versions
+are not maintained — if you are on an older build, please update.
+
+| Version | Supported |
+|---|---|
+| Latest release | Yes |
+| Older releases | No — please update |
+
+## Important: current builds are unsigned
+
+The current desktop builds are **not code-signed or notarized** on either
+platform. The operating system may warn you when you first open the app:
+
+- **macOS:** try opening the app. If Gatekeeper blocks it, go to **System
+  Settings → Privacy & Security → "Open Anyway,"** then confirm.
+- **Windows:** SmartScreen may show "Windows protected your PC." Click
+  **"More info" → "Run anyway."**
+
+Only approve an official download after verifying it (below).
+
+## Verifying your download
+
+To make sure your download is genuine and untampered, each release publishes
+**checksums (SHA-256)** alongside the build artifacts. After downloading,
+compute the checksum of your file and compare it to the published value:
+
+- **macOS / Linux:**
+
+  ```bash
+  shasum -a 256 "Voca.dmg"
+  ```
+
+- **Windows (PowerShell):**
+
+  ```powershell
+  Get-FileHash .\Voca-Setup.exe -Algorithm SHA256
+  ```
+
+If the value does not match the one published with the release, **do not run
+the file** — delete it and report it to us.
+
+Only download Voca from the official website **https://getvoca.vercel.app** or the
+official releases page at **https://github.com/aman-a-shah/voca-downloads/releases**.
+
+## Scope
+
+This policy covers the Voca application and its official build/release
+process. Vulnerabilities in third-party dependencies (see `ACKNOWLEDGEMENTS.md`)
+should generally be reported upstream, but please let us know if one affects
+Voca so we can update.
